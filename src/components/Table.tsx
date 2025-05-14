@@ -44,7 +44,7 @@ export default function Table({ top20CryptoCurrencies }: Props) {
         </tr>
       </thead>
       <tbody>
-        {displayCoins.map((cryptoCurrency: CryptoCurrency) => (
+        {displayCoins?.map((cryptoCurrency: CryptoCurrency) => (
           <TableRow key={cryptoCurrency.id} cryptoCurrency={cryptoCurrency} />
         ))}
       </tbody>
