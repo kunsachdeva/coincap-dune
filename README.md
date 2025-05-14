@@ -7,6 +7,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 First, run the development server:
 
+Create `.env` with variable name `NEXT_PUBLIC_API_KEY=`
+
 ```bash
 npm run dev
 # or
