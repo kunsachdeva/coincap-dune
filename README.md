@@ -2,7 +2,6 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-
 ![Project Screenshot](screenshots/1.png)
 ![Project Screenshot](screenshots/2.png)
 
