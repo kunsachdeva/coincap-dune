@@ -3,6 +3,8 @@
 import { CryptoCurrency } from "@/types";
 import TableRow from "./TableRow";
 import { useState } from "react";
+import { DarkModeContextProvider } from "@/context/DarkModeContext";
+import DarkModeToggle from "./DarkModeToggle";
 
 type Props = {
   top20CryptoCurrencies: CryptoCurrency[];
@@ -26,28 +28,40 @@ export default function Table({ top20CryptoCurrencies }: Props) {
         : top20CryptoCurrencies;
 
   return (
-    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-      <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-        <tr>
-          <th scope="col" className="px-6 py-3">
-            Rank
-          </th>
-          <th scope="col" className="px-6 py-3">
-            Name
-          </th>
-          <th scope="col" className="px-6 py-3">
-            Market Cap
-          </th>
-          <th scope="col" onClick={handlePriceHeadClick} className="px-6 py-3">
-            Price (click to sort)
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        {displayCoins?.map((cryptoCurrency: CryptoCurrency) => (
-          <TableRow key={cryptoCurrency.id} cryptoCurrency={cryptoCurrency} />
-        ))}
-      </tbody>
-    </table>
+    <DarkModeContextProvider>
+      <>
+        <DarkModeToggle />
+        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+              <th scope="col" className="px-6 py-3">
+                Rank
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Name
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Market Cap
+              </th>
+              <th
+                scope="col"
+                onClick={handlePriceHeadClick}
+                className="px-6 py-3"
+              >
+                Price (click to sort)
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {displayCoins?.map((cryptoCurrency: CryptoCurrency) => (
+              <TableRow
+                key={cryptoCurrency.id}
+                cryptoCurrency={cryptoCurrency}
+              />
+            ))}
+          </tbody>
+        </table>
+      </>
+    </DarkModeContextProvider>
   );
 }

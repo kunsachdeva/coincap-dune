@@ -1,6 +1,5 @@
 "use client";
 
-import getChartsData from "@/network/getChartData";
 import { PlotDataPoint } from "@/types";
 import ApexCharts from "apexcharts";
 import { useEffect, useState } from "react";
@@ -28,7 +27,7 @@ export default function Plot({ cryptoCurrencyId }: Props) {
         });
       }, 10000);
     });
-  }, []);
+  }, [cryptoCurrencyId]);
 
   return (
     <div className="max-h-420 w-full bg-white rounded-lg shadow-sm dark:bg-gray-800 p-4 md:p-6 mb-6">

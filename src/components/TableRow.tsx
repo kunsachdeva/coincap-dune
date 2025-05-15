@@ -1,35 +1,23 @@
 "use client";
 
+import { DarkModeContext } from "@/context/DarkModeContext";
 import { CryptoCurrency } from "@/types";
+import { shortenLargeNumber } from "@/utils";
+import { useContext } from "react";
 
 type Props = {
   cryptoCurrency: CryptoCurrency;
 };
 
-function shortenLargeNumber(num: number, digits: number) {
-  var units = ["k", "M", "B", "T"],
-    decimal;
-
-  for (var i = units.length - 1; i >= 0; i--) {
-    decimal = Math.pow(1000, i + 1);
-
-    if (num <= -decimal || num >= decimal) {
-      return +(num / decimal).toFixed(digits) + units[i];
-    }
-  }
-
-  return num;
-}
-
 export default function TableRow({ cryptoCurrency }: Props) {
   const handleClick = (id: string) => {
     window.location.href = `/coin/${id}`;
   };
-
+  const { contextValue: isDarkMode } = useContext(DarkModeContext);
   return (
     <tr
       onClick={() => handleClick(cryptoCurrency.id)}
-      className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200"
+      className={`border-b ${isDarkMode ? "bg-gray-800" : "bg-white"}`}
     >
       <td className="px-6 py-4">#{cryptoCurrency.rank}</td>
       <th
