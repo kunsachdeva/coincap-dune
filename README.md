@@ -1,13 +1,16 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Hosted on https://coincap-dune-zfda-fo26rpb1r-kunsachdevas-projects.vercel.app/
 
-## Getting Started
+## Preview
 
 ![Project Screenshot](screenshots/1.png)
 ![Project Screenshot](screenshots/2.png)
 
-First, run the development server:
+## Getting started
 
 Create `.env` with variable name `NEXT_PUBLIC_API_KEY=`
+
+
+First, run the development server:
 
 ```bash
 npm run dev
@@ -21,21 +24,25 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Click on any coin to navigate to page with more information about the coin
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Routes
 
-## Learn More
+`/` - Is the default route that lists coins
+`/coin/[id]` - Shows data about the given coin
 
-To learn more about Next.js, take a look at the following resources:
+## Folder structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`app` - Contains pages & layout
+`components` - Reusable components to be shared across pages
+`context` - Contains all contexts set deep state
+`network` - Network calls & corresponding constants
+`types` - Global types shared across components
+`utils` - Utitlies
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Notable points
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Uses async components supported by NextJS SSR
+- NEXT_PUBLIC_ env var is used for polling but ideally we would use SSE or websockets
+- Implemented custom sorting to demonstrate, ideally we would use existing component
+- Not using redux because React now has hooks to replace it - most modern apps don't use redux/mobx to implement one-way state management. Not that it was required by this app.

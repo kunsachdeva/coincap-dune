@@ -1,4 +1,4 @@
-import { API_KEY, BASE } from "./globals";
+import { API_KEY, BASE } from "./constants";
 
 const getChartsData = async (id: string) => {
   const url = `${BASE}/assets/${id}/history?interval=m30&apiKey=${API_KEY}`;

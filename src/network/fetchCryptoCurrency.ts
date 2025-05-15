@@ -1,4 +1,4 @@
-import { API_KEY, BASE } from "./globals";
+import { API_KEY, BASE } from "./constants";
 
 const fetchCryptoCurrency = async (id: string) => {
   const url = `${BASE}/assets/${id}?apiKey=${API_KEY}`;
