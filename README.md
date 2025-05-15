@@ -28,16 +28,16 @@ Click on any coin to navigate to page with more information about the coin
 
 ## Routes
 
-`/` - Is the default route that lists coins
+`/` - Is the default route that lists coins  
 `/coin/[id]` - Shows data about the given coin
 
 ## Folder structure
 
-`app` - Contains pages & layout
-`components` - Reusable components to be shared across pages
-`context` - Contains all contexts set deep state
-`network` - Network calls & corresponding constants
-`types` - Global types shared across components
+`app` - Contains pages & layout  
+`components` - Reusable components to be shared across pages  
+`context` - Contains all contexts set deep state  
+`network` - Network calls & corresponding constants  
+`types` - Global types shared across components  
 `utils` - Utitlies
 
 ## Notable points
